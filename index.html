@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+  FILES (sab ek hi folder me rakho):
+    index.html, style.css, logic.js, song.mpeg
+    photos/Photo1.jpeg, photos/Photo2.jpeg   (photos same folder me hon tab bhi chalega)
+  Text/wishes/photos/timer/story/game kahaan badalna hai wo logic.js me "EDIT" comments me likha hai.
+-->
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff8fb8">
+<title>Happy Birthday Meli Bbuu 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="bar"></div>
+<div id="glow"></div>
+<canvas id="confetti"></canvas>
+<div id="bg"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
+<div id="stars"></div>
+<div id="flies"></div>
+<div id="petals"></div>
+<div id="fx"></div>
+<div id="balloons"></div>
+<nav id="dots" aria-label="Sections"></nav>
+<audio id="song" loop preload="auto"></audio>
+<button id="mute" aria-label="Music on/off">🔇</button>
+<button id="night" aria-label="Night mode">🌙</button>
+<div id="toast"></div>
+<div id="lb" hidden><img alt=""><p></p></div>
+
+<section id="hero" data-label="Start">
+  <div id="intro">
+    <p>Meli Bbuu, ek chhota sa surprise aapka intezaar kar raha hai 🎁</p>
+    <div id="count">3</div>
+  </div>
+  <div id="title" hidden>
+    <p class="date">12 October</p>
+    <h1 id="h1">Happy Birthday <span>Meli Bbuu</span></h1>
+    <p class="sub">Jyoti, aaj ka din sirf tumhara hai 💖</p>
+    <button class="btn" id="open">Aage chalein? 🎁</button>
+    <p class="hint">Scroll karo ya upar-neeche dots dabao ⬇️</p>
+  </div>
+</section>
+
+<section id="letter" class="reveal" data-label="Letter">
+  <h2>Tumhare liye kuch likha hai 💌</h2>
+  <div id="typed"></div>
+  <button class="btn small" id="skip">Poora dikhao ⏩</button>
+</section>
+
+<section id="story" class="reveal" data-label="Story">
+  <h2>Humari chhoti si kahaani 📖</h2>
+  <div class="tl" id="tl"></div>
+</section>
+
+<section id="reasons" class="reveal" data-label="Reasons">
+  <h2>Meli Bbuu, tumse pyaar kyun hai 💕</h2>
+  <div class="grid" id="why"></div>
+</section>
+
+<section id="meterSec" class="reveal" data-label="Love meter">
+  <h2>Love meter 💘</h2>
+  <p class="sub">Slider ko khiskao, dekhein kitna pyaar hai</p>
+  <div id="mheart">💗</div>
+  <input type="range" id="meter" min="0" max="100" value="10" aria-label="Love meter">
+  <p id="mtxt">10%</p>
+</section>
+
+<section id="cakeSec" class="reveal" data-label="Cake">
+  <h2>Wish maango, phir phoonk maariye 🎂</h2>
+  <div class="cake" id="cake">
+    <div class="candle" style="left:60px"><i class="flame"></i></div>
+    <div class="candle" style="left:105px"><i class="flame"></i></div>
+    <div class="candle" style="left:150px"><i class="flame"></i></div>
+    <div class="layer l2"></div>
+    <div class="layer l1"></div>
+  </div>
+  <p id="wish">Aankhein band karke koi wish maang lijiye 🤍</p>
+  <div class="row">
+    <button class="btn" id="blow">Ab phoonk maariye 🌬️</button>
+    <button class="btn alt" id="mic">Mic se phoonko 🎤</button>
+  </div>
+</section>
+
+<section id="gallery" class="reveal" data-label="Photos">
+  <h2>Humare kuchh photos 🤗</h2>
+  <div id="track"></div>
+  <p class="hint">Photo par tap karo, badi dikhegi 🔍</p>
+</section>
+
+<section id="scratchSec" class="reveal" data-label="Scratch">
+  <h2>Scratch karke dekho ✨</h2>
+  <div class="scratch"><p id="secret"></p><canvas id="scr" width="300" height="150"></canvas></div>
+</section>
+
+<section id="gameSec" class="reveal" data-label="Game">
+  <h2>Heart catcher 🎮</h2>
+  <p class="sub" id="gstat">Dil pakdo ❤️ — toote dil 💔 se bacho!</p>
+  <div id="arena"></div>
+  <button class="btn" id="gstart">Shuru karo 🎮</button>
+</section>
+
+<section id="vouchers" class="reveal" data-label="Vouchers">
+  <h2>Tumhare liye gift vouchers 🎟️</h2>
+  <div class="coupons" id="coupons"></div>
+</section>
+
+<section id="jarSec" class="reveal" data-label="Wish jar">
+  <h2>Wish jar 🫙</h2>
+  <p class="sub">Apni ek wish likho, jar me daal do</p>
+  <div class="jarbox"><input id="wishIn" maxlength="60" placeholder="Meri wish..." aria-label="Wish"><button class="btn small" id="wishAdd">Daalo 🌠</button></div>
+  <div id="jar"></div>
+</section>
+
+<section id="finale" class="reveal" data-label="Finale">
+  <h2>Ek aakhri sawaal 💝</h2>
+  <p class="sub" id="q">Hamesha mere saath rahogi na?</p>
+  <div class="yn"><button class="btn" id="yes">Haan 💖</button><button class="btn alt" id="no">Nahi 🙈</button></div>
+  <button class="btn small" id="final">Baccha yahaan daba do na 🥺</button>
+  <p class="foot">Made with 💖 for Jyoti</p>
+</section>
+
+<script src="logic.js"></script>
+</body>
+</html>
